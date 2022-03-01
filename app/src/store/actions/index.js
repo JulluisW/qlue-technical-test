@@ -5,38 +5,40 @@ const url = "http://localhost:3000";
 export const fetchData = () => {
   return (dispatch) => {
     return fetch(`${url}/data`)
-    .then((response) => {
-      if (response.ok) {
-        return response.json();
-      } else {
-        return response.json().then((err) => {
-          return Promise.reject(err);
-        });
-      }
-    })
-    .then((data) => {
-      let temp = [];
-      data.forEach(el => {
-        let obj = {
-          id: el.id,
-          full_name: `${el.first_name} ${el.last_name}`,
-          expert_skills: []
-        };
-        for (const key in el.skills) {
-          obj.expert_skills.push(key)
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          return response.json().then((err) => {
+            return Promise.reject(err);
+          });
         }
-        temp.push(obj)
       })
-      dispatch(fetchDataSuccess(temp));
-    })
-    .catch((err) => {
-      dispatch(fetchError(err));
-    })
-    .finally(() => {
-      dispatch(fetchLoading(false));
-    });
-  }
-}
+      .then((data) => {
+        let temp = [];
+        data.forEach((el) => {
+          let obj = {
+            id: el.id,
+            full_name: `${el.first_name} ${el.last_name}`,
+            expert_skills: [],
+          };
+          for (const key in el.skills) {
+            if (el.skills[key] === "expert") {
+              obj.expert_skills.push(key);
+            }
+          }
+          temp.push(obj);
+        });
+        dispatch(fetchDataSuccess(temp));
+      })
+      .catch((err) => {
+        dispatch(fetchError(err));
+      })
+      .finally(() => {
+        dispatch(fetchLoading(false));
+      });
+  };
+};
 
 export const fetchMessage = () => {
   return (dispatch) => {
