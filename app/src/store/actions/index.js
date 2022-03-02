@@ -1,6 +1,6 @@
 import { FETCH_DATA_SUCCESS, FETCH_MESSAGE_SUCCESS, FETCH_ERROR, FETCH_LOADING } from "../actionTypes/index.js";
 
-const url = "http://localhost:3000";
+const url = "http://localhost:4000";
 
 export const fetchData = () => {
   return (dispatch) => {
