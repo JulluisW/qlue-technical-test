@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMessage, fetchData } from "../store/actions/index";
+import Card from "../components/Card";
 
 function Main() {
   const { data } = useSelector((state) => state)
@@ -15,9 +16,7 @@ function Main() {
       {
         data.map(el => {
           return (
-            <div className="card">
-              <p>{el.full_name} <br></br> {el.expert_skills.length === 0 ? "-" : el.expert_skills.join(', ')}</p>
-            </div>
+            <Card key={el.id} person={el} />
           )
         })
       }
