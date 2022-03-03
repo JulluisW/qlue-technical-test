@@ -2,12 +2,12 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 .card {
   width: 49%;
-  margin: 5px 0;
+  margin: 5px 6px;
   background-color: cadetblue;
   display: flex;
   flex-direction: column;
@@ -71,4 +71,83 @@
 
 .profile-name {
   letter-spacing: 10px;
+}
+
+#create-button {
+  bottom: 2rem;
+  left: 48%;
+  position: absolute;
+  background-color: black;
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  color: white;
+  font-size: 3rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#CreatePage {
+  margin: 10px auto;
+  width: 600px;
+  max-width: 600px;
+  height: 910px;
+  max-height: 910px;
+  background-color: rgb(223, 168, 86);
+  padding: 30px 20px 0 20px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+#form-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+#submit-person-btn {
+  background-color: black;
+  color: white;
+  border: solid 1px #ffdba5;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  padding: 0.4rem 0;
+  margin-top: 3rem;
+}
+
+#expert-label {
+  margin: 0.5rem 0 0.4rem 0;
+  letter-spacing: 3px;
+}
+
+.checkbox-wrapper {
+  display: flex;
+}
+
+.name-input-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.name-input-wrapper label {
+  margin-bottom: 0.3rem;
+  letter-spacing: 2px;
+}
+
+.name-input-wrapper input {
+  font-size: 1.2rem;
+  padding: 0.6rem;
+}
+
+.text-input {
+  background-color: #ffe3b9;
+}
+
+#input-error {
+  color: red;
+  letter-spacing: 1px;
 }
