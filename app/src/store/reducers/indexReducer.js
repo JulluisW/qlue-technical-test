@@ -1,10 +1,11 @@
-import { FETCH_DATA_SUCCESS, FETCH_MESSAGE_SUCCESS, FETCH_ERROR, FETCH_LOADING } from "../actionTypes";
+import { FETCH_DATA_SUCCESS, FETCH_MESSAGE_SUCCESS, FETCH_ERROR, FETCH_LOADING, FETCH_PROFILE } from "../actionTypes";
 
 const initialValue = {
   message: "",
   data: [],
   error: "",
   loading: true,
+  profile: {},
 };
 
 function indexReducers(state = initialValue, action) {
@@ -27,6 +28,11 @@ function indexReducers(state = initialValue, action) {
     return {
       ...state,
       loading: action.payload,
+    };
+  } else if (action.type === FETCH_PROFILE) {
+    return {
+      ...state,
+      profile: action.payload,
     };
   }
   return state
