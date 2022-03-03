@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMessage, fetchData } from "../store/actions/index";
 import Card from "../components/Card";
+import CreateButton from '../molecules/CreateButton'
 
 function Main() {
   const { data } = useSelector((state) => state)
@@ -24,6 +25,7 @@ function Main() {
           )
         })
       }
+      <CreateButton />
     </div>
   );
 }

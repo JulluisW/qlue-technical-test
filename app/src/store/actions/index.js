@@ -41,6 +41,33 @@ export const fetchData = () => {
   };
 };
 
+export const postData = (payload) => {
+  return (dispatch)=> {
+    return fetch(`${url}/data`,{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload)
+    })
+    .then((response) => {
+      if(response.ok){
+        return response.json();
+      } else {
+        return response.json().then((err) => {
+          return Promise.reject(err);
+        });
+      }
+    })
+    .then(() => {
+      dispatch(fetchData())
+    })
+    .catch((err) => {
+      return err
+    })
+  }
+}
+
 export const fetchMessage = () => {
   return (dispatch) => {
     return fetch(`${url}/message`)
