@@ -1,4 +1,4 @@
-import { FETCH_DATA_SUCCESS, FETCH_MESSAGE_SUCCESS, FETCH_ERROR, FETCH_LOADING } from "../actionTypes/index.js";
+import { FETCH_DATA_SUCCESS, FETCH_MESSAGE_SUCCESS, FETCH_ERROR, FETCH_LOADING, FETCH_PROFILE } from "../actionTypes/index.js";
 
 const url = "http://localhost:4000";
 
@@ -30,6 +30,7 @@ export const fetchData = () => {
           temp.push(obj);
         });
         dispatch(fetchDataSuccess(temp));
+        return temp
       })
       .catch((err) => {
         dispatch(fetchError(err));
@@ -88,6 +89,13 @@ export const fetchLoading = (payload) => {
 export const fetchError = (payload) => {
   return {
     type: FETCH_ERROR,
+    payload,
+  };
+};
+
+export const fetchProfile = (payload) => {
+  return {
+    type: FETCH_PROFILE,
     payload,
   };
 };

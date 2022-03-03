@@ -6,6 +6,7 @@ import Card from "../components/Card";
 function Main() {
   const { data } = useSelector((state) => state)
   const dispatch = useDispatch()
+
   useEffect(() => {
     dispatch(fetchMessage());
     dispatch(fetchData());
@@ -16,7 +17,10 @@ function Main() {
       {
         data.map(el => {
           return (
-            <Card key={el.id} person={el} />
+            <Card 
+            key={el.id} 
+            person={el} 
+            />
           )
         })
       }
